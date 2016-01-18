@@ -73,7 +73,7 @@ function compile {
   done
   run "${arduino_home}/Contents/Java/hardware/tools/avr/bin/avr-gcc" -w -Os -Wl,--gc-sections -mmcu=attiny85  -o "${tmp}/trinket-wall-e.ino.elf" "${tmp}/sketch/trinket-wall-e.ino.cpp.o" "${tmp}/libraries/Adafruit_NeoPixel/esp8266.c.o" "${tmp}/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp.o" "${tmp}/libraries/NewPing/NewPing.cpp.o" "${tmp}/core/core.a" "-L${tmp}" -lm
   run "${arduino_home}/Contents/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0  "${tmp}/trinket-wall-e.ino.elf" "${tmp}/trinket-wall-e.ino.eep"
-  run "${arduino_home}/Contents/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -R .eeprom  "${tmp}/trinket-wall-e.ino.elf" "${tmp}/trinket-wall-e.ino.hex"
+  run "${arduino_home}/Contents/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -R .eeprom  "${tmp}/trinket-wall-e.ino.elf" "trinket-wall-e.ino.hex"
 }
 
 function upload {
