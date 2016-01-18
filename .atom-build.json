@@ -1,0 +1,18 @@
+{
+  "cmd": "./make",
+  "name": "Compile and Upload",
+  "args": [ "compile" ],
+  "errorMatch": [
+    "^regexp1$",
+    "^regexp2$"
+  ],
+  "keymap": "cmd-R",
+  "targets": {
+    "Compile": {
+      "cmd": "./make compile"
+    },
+    "Upload": {
+      "cmd": "./make upload"
+    }
+  }
+}
